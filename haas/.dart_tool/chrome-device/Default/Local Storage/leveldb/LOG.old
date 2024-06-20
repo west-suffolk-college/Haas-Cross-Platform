@@ -1,22 +1,17 @@
-2024/06/20-09:24:25.890 1558 Reusing MANIFEST C:\Users\User\AppData\Local\Temp\flutter_tools.e7fb52a2\flutter_tools_chrome_device.e441a15f\Default\Local Storage\leveldb/MANIFEST-000001
-2024/06/20-09:24:25.925 1558 Recovering log #29
-2024/06/20-09:24:25.926 1558 Level-0 table #32: started
-2024/06/20-09:24:25.940 1558 Level-0 table #32: 20949 bytes OK
-2024/06/20-09:24:25.958 1558 Delete type=0 #3
-2024/06/20-09:24:25.958 1558 Delete type=2 #11
-2024/06/20-09:24:25.959 1558 Delete type=0 #12
-2024/06/20-09:24:25.959 1558 Delete type=2 #13
-2024/06/20-09:24:25.959 1558 Delete type=0 #15
-2024/06/20-09:24:25.959 1558 Delete type=2 #16
-2024/06/20-09:24:25.959 1558 Delete type=0 #20
-2024/06/20-09:24:25.959 1558 Delete type=0 #26
-2024/06/20-09:24:25.959 1558 Delete type=0 #29
-2024/06/20-09:24:25.971 3888 Compacting 4@0 + 1@1 files
-2024/06/20-09:24:25.990 3888 Generated table #34@0: 29 keys, 23570 bytes
-2024/06/20-09:24:25.990 3888 Compacted 4@0 + 1@1 files => 23570 bytes
-2024/06/20-09:24:25.999 3888 compacted to: files[ 0 1 0 0 0 0 0 ]
-2024/06/20-09:24:26.000 3888 Delete type=2 #22
-2024/06/20-09:24:26.000 3888 Delete type=2 #24
-2024/06/20-09:24:26.000 3888 Delete type=2 #27
-2024/06/20-09:24:26.000 3888 Delete type=2 #30
-2024/06/20-09:24:26.000 3888 Delete type=2 #32
+2024/06/20-13:03:24.732 223c Reusing MANIFEST C:\Users\User\AppData\Local\Temp\flutter_tools.8f644186\flutter_tools_chrome_device.356754db\Default\Local Storage\leveldb/MANIFEST-000001
+2024/06/20-13:03:24.772 223c Recovering log #38
+2024/06/20-13:03:24.788 223c Reusing old log C:\Users\User\AppData\Local\Temp\flutter_tools.8f644186\flutter_tools_chrome_device.356754db\Default\Local Storage\leveldb/000038.log 
+2024/06/20-13:03:24.823 223c Delete type=0 #3
+2024/06/20-13:03:24.823 223c Delete type=2 #11
+2024/06/20-13:03:24.823 223c Delete type=0 #12
+2024/06/20-13:03:24.823 223c Delete type=2 #13
+2024/06/20-13:03:24.823 223c Delete type=0 #15
+2024/06/20-13:03:24.823 223c Delete type=2 #16
+2024/06/20-13:03:24.824 223c Delete type=0 #20
+2024/06/20-13:03:24.824 223c Delete type=2 #22
+2024/06/20-13:03:24.825 223c Delete type=2 #24
+2024/06/20-13:03:24.825 223c Delete type=0 #26
+2024/06/20-13:03:24.825 223c Delete type=2 #27
+2024/06/20-13:03:24.825 223c Delete type=0 #29
+2024/06/20-13:03:24.825 223c Delete type=2 #30
+2024/06/20-13:03:24.825 223c Delete type=0 #33
