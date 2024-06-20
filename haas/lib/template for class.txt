@@ -1,0 +1,12 @@
+class cname extends StatefulWidget {
+  const cname({super.key});
+  @override
+  State<cname> createState() => _cnameState();
+}
+
+class _cnameState extends State<cname> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(); 
+  }
+}
