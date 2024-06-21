@@ -1,6 +1,4 @@
-String tempMode = 'c';
-
-double tempritureCalculator(double temp) {
+double tempritureCalculator(double temp, String tempMode) {
   switch (tempMode) {
     case 'k':
       return temp + 273.15;
