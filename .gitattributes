@@ -1,4 +1,4 @@
 *.cpp linguist-detectable=false
 *.js linguist-detectable=false
-*.make linguist-detectable=false
+*.d linguist-detectable=false
 *.mk linguist-detectable=false
