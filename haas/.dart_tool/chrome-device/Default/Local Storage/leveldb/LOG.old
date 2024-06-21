@@ -1,26 +1,48 @@
-2024/06/20-13:59:52.068 3178 Reusing MANIFEST C:\Users\User\AppData\Local\Temp\flutter_tools.68df551c\flutter_tools_chrome_device.4dfc9253\Default\Local Storage\leveldb/MANIFEST-000001
-2024/06/20-13:59:52.104 3178 Recovering log #49
-2024/06/20-13:59:52.107 3178 Reusing old log C:\Users\User\AppData\Local\Temp\flutter_tools.68df551c\flutter_tools_chrome_device.4dfc9253\Default\Local Storage\leveldb/000049.log 
-2024/06/20-13:59:52.109 3178 Delete type=0 #3
-2024/06/20-13:59:52.109 3178 Delete type=2 #11
-2024/06/20-13:59:52.109 3178 Delete type=0 #12
-2024/06/20-13:59:52.109 3178 Delete type=2 #13
-2024/06/20-13:59:52.109 3178 Delete type=0 #15
-2024/06/20-13:59:52.109 3178 Delete type=2 #16
-2024/06/20-13:59:52.110 3178 Delete type=0 #20
-2024/06/20-13:59:52.110 3178 Delete type=2 #22
-2024/06/20-13:59:52.119 3178 Delete type=2 #24
-2024/06/20-13:59:52.119 3178 Delete type=0 #26
-2024/06/20-13:59:52.119 3178 Delete type=2 #27
-2024/06/20-13:59:52.119 3178 Delete type=0 #29
-2024/06/20-13:59:52.119 3178 Delete type=2 #30
-2024/06/20-13:59:52.119 3178 Delete type=0 #33
-2024/06/20-13:59:52.119 3178 Delete type=2 #34
-2024/06/20-13:59:52.119 3178 Delete type=2 #37
-2024/06/20-13:59:52.119 3178 Delete type=0 #38
-2024/06/20-13:59:52.119 3178 Delete type=2 #39
-2024/06/20-13:59:52.119 3178 Delete type=0 #41
-2024/06/20-13:59:52.119 3178 Delete type=2 #42
-2024/06/20-14:00:31.421 4a0 Level-0 table #53: started
-2024/06/20-14:00:31.439 4a0 Level-0 table #53: 21557 bytes OK
-2024/06/20-14:00:31.452 4a0 Delete type=0 #49
+2024/06/21-11:56:21.751 2f18 Reusing MANIFEST C:\Users\User\AppData\Local\Temp\flutter_tools.631488b6\flutter_tools_chrome_device.8657673c\Default\Local Storage\leveldb/MANIFEST-000001
+2024/06/21-11:56:21.779 2f18 Recovering log #64
+2024/06/21-11:56:21.781 2f18 Level-0 table #67: started
+2024/06/21-11:56:21.799 2f18 Level-0 table #67: 21751 bytes OK
+2024/06/21-11:56:21.818 2f18 Delete type=0 #3
+2024/06/21-11:56:21.818 2f18 Delete type=2 #11
+2024/06/21-11:56:21.818 2f18 Delete type=0 #12
+2024/06/21-11:56:21.818 2f18 Delete type=2 #13
+2024/06/21-11:56:21.818 2f18 Delete type=0 #15
+2024/06/21-11:56:21.818 2f18 Delete type=2 #16
+2024/06/21-11:56:21.819 2f18 Delete type=0 #20
+2024/06/21-11:56:21.819 2f18 Delete type=2 #22
+2024/06/21-11:56:21.819 2f18 Delete type=2 #24
+2024/06/21-11:56:21.819 2f18 Delete type=0 #26
+2024/06/21-11:56:21.819 2f18 Delete type=2 #27
+2024/06/21-11:56:21.820 2f18 Delete type=0 #29
+2024/06/21-11:56:21.820 2f18 Delete type=2 #30
+2024/06/21-11:56:21.820 2f18 Delete type=0 #33
+2024/06/21-11:56:21.820 2f18 Delete type=2 #34
+2024/06/21-11:56:21.820 2f18 Delete type=2 #37
+2024/06/21-11:56:21.820 2f18 Delete type=0 #38
+2024/06/21-11:56:21.820 2f18 Delete type=2 #39
+2024/06/21-11:56:21.820 2f18 Delete type=0 #41
+2024/06/21-11:56:21.820 2f18 Delete type=2 #42
+2024/06/21-11:56:21.821 2f18 Delete type=2 #46
+2024/06/21-11:56:21.821 2f18 Delete type=2 #48
+2024/06/21-11:56:21.821 2f18 Delete type=0 #49
+2024/06/21-11:56:21.821 2f18 Delete type=2 #50
+2024/06/21-11:56:21.821 2f18 Delete type=0 #52
+2024/06/21-11:56:21.821 2f18 Delete type=2 #53
+2024/06/21-11:56:21.821 2f18 Delete type=0 #56
+2024/06/21-11:56:21.821 2f18 Delete type=0 #59
+2024/06/21-11:56:21.821 2f18 Delete type=0 #64
+2024/06/21-11:56:21.844 2e50 Compacting 4@0 + 1@1 files
+2024/06/21-11:56:21.868 2e50 Generated table #69@0: 34 keys, 25372 bytes
+2024/06/21-11:56:21.868 2e50 Compacted 4@0 + 1@1 files => 25372 bytes
+2024/06/21-11:56:21.878 2e50 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/06/21-11:56:21.881 2e50 Delete type=2 #57
+2024/06/21-11:56:21.881 2e50 Delete type=2 #60
+2024/06/21-11:56:21.881 2e50 Delete type=2 #62
+2024/06/21-11:56:21.881 2e50 Delete type=2 #65
+2024/06/21-11:56:21.881 2e50 Delete type=2 #67
+2024/06/21-11:57:01.389 2e50 Level-0 table #71: started
+2024/06/21-11:57:01.404 2e50 Level-0 table #71: 20323 bytes OK
+2024/06/21-11:57:01.416 2e50 Delete type=0 #68
+2024/06/21-11:58:30.929 2e50 Level-0 table #73: started
+2024/06/21-11:58:30.941 2e50 Level-0 table #73: 21468 bytes OK
+2024/06/21-11:58:30.954 2e50 Delete type=0 #70

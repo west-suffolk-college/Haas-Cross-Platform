@@ -10,9 +10,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool _passwordVisibility = true;
   @override
   Widget build(BuildContext context) {
+    bool passwordVisibility = true;
     return Scaffold(
       backgroundColor: colours['sec-bg']!,
       body: SingleChildScrollView(
@@ -27,63 +27,7 @@ class _LoginState extends State<Login> {
                   height: screenDia * 0.8,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                child: SizedBox(
-                  width: screenDia * 0.82,
-                  child: TextFormField(
-                    autofocus: true,
-                    autofillHints: const [AutofillHints.email],
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      labelStyle: TextStyle(
-                        fontFamily: font,
-                        fontSize: fontSize,
-                        letterSpacing: lineSpace,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: colours['sec']!,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: colours['pri']!,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: colours['err']!,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: colours['ter']!,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      filled: true,
-                      fillColor: colours['pri-bg'],
-                    ),
-                    style: TextStyle(
-                      fontFamily: font,
-                      fontSize: fontSize,
-                      letterSpacing: lineSpace,
-                      fontWeight: FontWeight.w500,
-                      color: colours['pri-txt']!,
-                    ),
-                  ),
-                ),
-              ),
+              myEmailInput(),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                 child: SizedBox(
@@ -91,7 +35,7 @@ class _LoginState extends State<Login> {
                   child: TextFormField(
                     autofocus: true,
                     autofillHints: const [AutofillHints.password],
-                    obscureText: _passwordVisibility,
+                    obscureText: passwordVisibility,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(
@@ -133,12 +77,13 @@ class _LoginState extends State<Login> {
                       suffixIcon: InkWell(
                         onTap: () {
                           setState(() {
-                            _passwordVisibility = !_passwordVisibility;
+                            passwordVisibility = !passwordVisibility;
                           });
                         },
                         focusNode: FocusNode(skipTraversal: true),
                         child: Icon(
-                          _passwordVisibility ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                          passwordVisibility ? 
+                          Icons.visibility_off_outlined : Icons.visibility_outlined,
                           color: colours['sec-txt'],
                           size: screenDia * 0.045,
                         ),
@@ -158,10 +103,6 @@ class _LoginState extends State<Login> {
                 context,
                 'HomePage',
                 'Login',
-                colours,
-                font,
-                fontSize,
-                lineSpace
               )
             ],
           ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'add_new.dart';
 import 'home_page.dart';
 import 'login.dart';
 import 'account.dart';
 import 'settings.dart';
 import 'updates.dart';
+import 'formulars.dart';
 
 Map<String, Color> colours = const {
   'pri' :     Color.fromRGBO(225, 0, 32, 1), //primairy
@@ -26,16 +28,25 @@ String font = 'Plus Jakarta Sans';
 double lineSpace = 0.0;
 String tempMode = 'c';
 int screenDia = 0;
+double screenH = 0;
+double screenW = 0;
 
-dynamic min(List nums) {
-  var lowest = nums[0];
-  for (var num in nums) {
-    if (num < lowest) {
-      lowest = num;
-    }
+List<Map<String, dynamic>> machineData = const [
+  {
+    'name' : 'machy 1',
+    'temp' : 90.0,
+    'ID' : '18737620172',
+    'percentDone' : 50,
+    'online' : true
+  },
+  {
+    'name' : 'john',
+    'temp' : 30.0,
+    'ID' : '18732630172',
+    'percentDone' : 12,
+    'online' : false
   }
-  return lowest;
-}
+];
 
 void main() {
   runApp( const MyApp() );
@@ -52,14 +63,17 @@ class MyApp extends StatelessWidget {
         MediaQuery.of(context).size.width,
       ]
     );
+    screenH = MediaQuery.of(context).size.height;
+    screenW = MediaQuery.of(context).size.width;
     return MaterialApp(
       routes: {
         'Login': (context) => const Login(),
         'HomePage' : (context) => const HomePage(),
         'Account' : (context) => const Account(),
         'Settings' : (context) => const Settings(),
+        'AddNew' : (context) => const AddNew(),
       },
-      initialRoute: 'Login',
+      initialRoute: 'HomePage',
       debugShowCheckedModeBanner: false,
       title: 'My Haas',
       theme: ThemeData(

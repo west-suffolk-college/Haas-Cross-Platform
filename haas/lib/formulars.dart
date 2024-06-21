@@ -1,4 +1,6 @@
-double tempritureCalculator(double temp, String tempMode) {
+import './main.dart';
+
+double tempritureCalculator(double temp) {
   switch (tempMode) {
     case 'k':
       return temp + 273.15;
@@ -8,3 +10,14 @@ double tempritureCalculator(double temp, String tempMode) {
   }
   return temp;
 }
+
+dynamic min(List nums) {
+  var lowest = nums[0];
+  for (var num in nums) {
+    if (num < lowest) {
+      lowest = num;
+    }
+  }
+  return lowest;
+}
+

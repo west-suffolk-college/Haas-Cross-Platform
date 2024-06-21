@@ -13,7 +13,7 @@ class _SettingState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colours['pri-bg'],
-      appBar: myAppBar(context, colours),
+      appBar: myAppBar(context),
       body: const SingleChildScrollView(
         child: Center(
         )

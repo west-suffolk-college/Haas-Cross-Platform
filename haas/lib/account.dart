@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haas/elements.dart';
-import 'package:haas/main.dart';
+import './elements.dart';
+import './main.dart';
 
 class Account extends StatefulWidget {
   const Account({super.key});
@@ -13,7 +13,7 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colours['pri-bg'],
-      appBar: myAppBar(context, colours),
+      appBar: myAppBar(context),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -22,10 +22,6 @@ class _AccountState extends State<Account> {
                 context,
                 'Login',
                 'Sign out',
-                colours,
-                font,
-                fontSize,
-                lineSpace
               )
             ],
           ),

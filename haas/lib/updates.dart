@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haas/main.dart';
+import './main.dart';
 
 void colourUpdate(bool isDark) {
   Map<String, Color> coloursBase = {

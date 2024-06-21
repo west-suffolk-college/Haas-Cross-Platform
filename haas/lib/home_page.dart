@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haas/elements.dart';
-import 'package:haas/main.dart';
+import './elements.dart';
+import './main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,7 +13,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colours['pri-bg'],
-      appBar: myAppBar(context, colours),
-    ); 
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          Navigator.pushNamed(context, 'AddNew');
+        },
+        mini: true,
+        backgroundColor: colours['pri'],
+        elevation: 8.0,
+        child: Icon(
+          Icons.add,
+          color: colours['pri-txt'],
+          size: 24.0,
+        ),
+      ),
+      appBar: myAppBar(context),
+      body: ListView.builder(
+        itemCount: machineData.length,
+        itemBuilder: (context, index) {
+          return myMachineVeiwer(context, machineData[index]);
+        },
+      )
+    );
   }
 }
