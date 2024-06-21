@@ -146,49 +146,112 @@ Padding myEmailInput(){
 }
 
 Container myMachineVeiwer(BuildContext context,Map machine) {
+  if (machine['online']) {
+    return onlineMachine(context, machine);
+  }
+  else {
+    return offlineMachine(machine);
+  }
+}
+
+Container onlineMachine(BuildContext context, Map machine) {
   return Container(
     color: colours['acc'],
     width: screenH*0.8,
-    height: screenH*0.4,
+    height: screenH*0.2,
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(
               Icons.factory_outlined,
               color: colours['pri-txt'],
+              size: screenH*0.07
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan( 
+                    text: machine['name'],
+                    style: TextStyle(
+                      fontFamily: font,
+                      fontSize: fontSize+14,
+                      letterSpacing: lineSpace,
+                      fontWeight: FontWeight.w500,
+                      color: colours['pri'],
+                    ),
+                  ),
+                ]
+              )
             ),
             tempritureText(machine['temp']),
-          ],
-        ),
-        Row(
-          children: [
             Icon(
-              getIcon(machine['status']),
+              Icons.wifi_outlined,
               color: colours['pri-txt'],
             ),
-            progressBar(context, machine['percentDone'])
-          ]
-        )
-      ],
+          ],
+        ),
+        progressBar(context, machine['percentDone'])
+      ]
     ),
   );
 }
 
-IconData getIcon(bool status) {
-  if (status) {
-    return Icons.wifi_outlined;
-  }
-  return Icons.wifi_off;
+Container offlineMachine(Map machine) {
+  return Container(
+    color: colours['acc'],
+    width: screenH*0.8,
+    height: screenH*0.2,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(
+              Icons.factory_outlined,
+              color: colours['pri-txt'],
+              size: screenH*0.07
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan( 
+                    text: machine['name'],
+                    style: TextStyle(
+                      fontFamily: font,
+                      fontSize: fontSize+14,
+                      letterSpacing: lineSpace,
+                      fontWeight: FontWeight.w500,
+                      color: colours['pri'],
+                    ),
+                  ),
+                ]
+              )
+            ),
+            Icon(
+              Icons.wifi_off,
+              color: colours['err']
+            ),
+          ],
+        ),
+      ]
+    ),
+  );
 }
 
 Container progressBar(BuildContext context, double progress) {
   double borderRadius = 10.0;
+  Color col = colours['pri']!;
+  if (progress == 1) {
+    col = colours['suc']!;
+  }
   return Container(
-    height: 10.0,
-    width: double.infinity, // Fills the available width
+    width: screenW*0.8,
     decoration: BoxDecoration(
-      color: colours['acc']!,
+      color: colours['sec-bg']!,
       borderRadius: BorderRadius.circular(borderRadius),
     ),
     child: Stack(
@@ -197,8 +260,7 @@ Container progressBar(BuildContext context, double progress) {
           borderRadius: BorderRadius.circular(borderRadius),
           child: LinearProgressIndicator(
             value: progress,
-            backgroundColor: Colors.transparent, // Removed redundant color
-            valueColor: AlwaysStoppedAnimation(colours['pri']!),
+            valueColor: AlwaysStoppedAnimation(col),
           ),
         ),
       ],
@@ -212,7 +274,7 @@ RichText tempritureText(double temp) {
     text: TextSpan(
       children: [
         TextSpan(
-          text: '$trueTemp',
+          text: '$trueTemp°',
           style: TextStyle(
             fontFamily: font,
             fontSize: fontSize+15.0,
@@ -235,4 +297,3 @@ Color getTempColour(double temp) {
   }
   return colours['suc']!;
 }
-

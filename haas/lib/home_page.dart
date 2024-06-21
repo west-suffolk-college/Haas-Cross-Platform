@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './elements.dart';
 import './main.dart';
+import 'updates.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    updateMachineInfo();
     return Scaffold(
       backgroundColor: colours['pri-bg'],
       floatingActionButton: FloatingActionButton(
@@ -27,12 +29,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: myAppBar(context),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: machineData.length,
         itemBuilder: (context, index) {
           return myMachineVeiwer(context, machineData[index]);
         },
-      )
+        separatorBuilder: (context, index) => SizedBox(
+          height: screenH*0.07
+          ), // Adjust height as needed
+      ),
     );
   }
 }

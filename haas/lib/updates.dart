@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './main.dart';
+import 'back_end.dart';
 
 void colourUpdate(bool isDark) {
   Map<String, Color> coloursBase = {
@@ -85,3 +86,6 @@ void changeFont(String newFont) {
   font = newFont;
 }
 
+void updateMachineInfo() {
+  machineData = talkBackend();
+}

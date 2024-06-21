@@ -6,6 +6,7 @@ import 'account.dart';
 import 'settings.dart';
 import 'updates.dart';
 import 'formulars.dart';
+import 'back_end.dart';
 
 Map<String, Color> colours = const {
   'pri' :     Color.fromRGBO(225, 0, 32, 1), //primairy
@@ -20,7 +21,7 @@ Map<String, Color> colours = const {
   'pri-bg' :  Color.fromRGBO(34, 34, 34, 1), //primairy background
   'sec-bg' :  Color.fromRGBO(30, 30, 110, 1), //secondairy background
   'acc' :     Color.fromRGBO(25, 25, 109, 1), //accent
-  'invis' :   Color.fromRGBO(0, 0, 0, 0.0), //invisable
+  'invis' :   Color.fromRGBO(0, 0, 0, 0), //invisable
 };
 
 double fontSize = 14.0;
@@ -31,22 +32,9 @@ int screenDia = 0;
 double screenH = 0;
 double screenW = 0;
 
-List<Map<String, dynamic>> machineData = const [
-  {
-    'name' : 'machy 1',
-    'temp' : 90.0,
-    'ID' : '18737620172',
-    'percentDone' : 50,
-    'online' : true
-  },
-  {
-    'name' : 'john',
-    'temp' : 30.0,
-    'ID' : '18732630172',
-    'percentDone' : 12,
-    'online' : false
-  }
-];
+String severIP = 'this a good ip';
+
+List<Map> machineData = talkBackend();
 
 void main() {
   runApp( const MyApp() );
@@ -73,7 +61,7 @@ class MyApp extends StatelessWidget {
         'Settings' : (context) => const Settings(),
         'AddNew' : (context) => const AddNew(),
       },
-      initialRoute: 'HomePage',
+      initialRoute: 'Login',
       debugShowCheckedModeBanner: false,
       title: 'My Haas',
       theme: ThemeData(
