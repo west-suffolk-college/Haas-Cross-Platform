@@ -1,3 +1,3 @@
 # Exclude all files from language statistics except those in the ./lib/ directory
 * linguist-vendored
-!lib/**
+!./lib/**
