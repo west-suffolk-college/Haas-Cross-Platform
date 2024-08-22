@@ -1,2 +1,1 @@
-# Exclude all files from language statistics except those in the ./lib/ directory
-!*.dart linguist-vendored
+!*.dart linguist-detectable=false
