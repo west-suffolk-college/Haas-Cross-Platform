@@ -1,4 +1,6 @@
-List<Map> talkBackend(){
+
+/// ## this is a back end replacement, until it is ready to be used
+List<Map<String, dynamic>> talkBackend(){
   return  const [
     {
       'name' : 'Machy 1',

@@ -1,12 +1,18 @@
-class cname extends StatefulWidget {
-  const cname({super.key});
+class class-name extends StatefulWidget {
+  const class-name({super.key});
   @override
-  State<cname> createState() => _cnameState();
+  State<class-name> createState() => _class-nameState();
 }
 
-class _cnameState extends State<cname> {
+class _class-nameState extends State<class-name> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(); 
+    return Consumer<GlobalVars>(  
+      builder: (context, globalVars, child) {
+        return Scaffold(
+
+        );
+      }
+    ); 
   }
 }

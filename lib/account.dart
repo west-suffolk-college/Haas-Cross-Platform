@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import './elements.dart';
-import './main.dart';
+import 'package:provider/provider.dart';
+import 'elements.dart';
+import 'main.dart' ;
 
+/// 
 class Account extends StatefulWidget {
   const Account({super.key});
   @override
@@ -11,22 +13,27 @@ class Account extends StatefulWidget {
 class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: colours['pri-bg'],
-      appBar: myAppBar(context),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              myNavButton(
-                context,
-                'Login',
-                'Sign out',
-              )
-            ],
-          ),
-        ),
-      )
-    ); 
+    return Consumer<GlobalVars>(
+      builder: (context, globalVars, child) {
+        return Scaffold(
+          backgroundColor: globalVars.colours.primaryBackground,
+          appBar: myAppBar(context, globalVars),
+          body: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  myNavButton(
+                    context,
+                    globalVars,
+                    'Login',
+                    'Sign out',
+                  )
+                ],
+              ),
+            ),
+          )
+        ); 
+      }
+    );
   }
 }

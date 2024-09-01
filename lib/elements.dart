@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:haas/formulars.dart';
+import 'package:haas/formulae.dart';
 import './main.dart';
 
-Padding myNavButton(BuildContext context, String goto, String text) {
+
+/// this is a nav button
+/// this takes in:
+/// * goto args which from root it will navigate to a page
+/// * text which will be the name of the button displayed
+Padding myNavButton(BuildContext context, GlobalVars globalVars, String goto, String text) {
   return Padding(
     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
     child: OutlinedButton(
@@ -10,27 +15,30 @@ Padding myNavButton(BuildContext context, String goto, String text) {
         Navigator.pushNamed(context, goto);
       },
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(colours['pri']!),
-        side: WidgetStateProperty.all(BorderSide( color: colours['sec']!))
+        backgroundColor: WidgetStateProperty.all(globalVars.colours.primary),
+        side: WidgetStateProperty.all(BorderSide( color: globalVars.colours.secondary))
         ),
       child: Text(
         text,
         style: TextStyle(
-          fontFamily: font,
-          fontSize: fontSize+1,
-          letterSpacing: lineSpace,
+          fontFamily: globalVars.fontInfo.font,
+          fontSize: globalVars.fontInfo.fontSizeMedium+1,
+          letterSpacing: globalVars.fontInfo.lineSpace,
           fontWeight: FontWeight.w500,
-          color: colours['pri-txt'],
+          color: globalVars.colours.primaryText,
         ),
       ),
     ),
   );
 }
 
-AppBar myAppBar(BuildContext context) {
+/// my app bar
+/// has no args
+/// but it will return the app bar that is used across most of the apps main pages.
+AppBar myAppBar(BuildContext context, GlobalVars globalVars) {
   return AppBar(
-    backgroundColor: colours['sec-bg'],
-    iconTheme: IconThemeData(color: colours['pri-txt']),
+    backgroundColor: globalVars.colours.secondaryBackground,
+    iconTheme: IconThemeData(color: globalVars.colours.primaryText),
     automaticallyImplyLeading: false,
     flexibleSpace: FlexibleSpaceBar(
       title: Row(
@@ -54,10 +62,10 @@ AppBar myAppBar(BuildContext context) {
             ),
           ),
           IconButton(
-            color: colours['pri'],
+            color: globalVars.colours.primary,
             icon: Icon(
               Icons.person_outline,
-              color: colours['pri-text'],
+              color: globalVars.colours.primaryText,
               size: 24.0,
             ),
             onPressed: () async {
@@ -65,10 +73,10 @@ AppBar myAppBar(BuildContext context) {
             },
           ),
           IconButton(
-            color: colours['pri'],
+            color: globalVars.colours.primary,
             icon: Icon(
               Icons.settings_outlined,
-              color: colours['pri-text'],
+              color: globalVars.colours.primaryText,
               size: 24.0,
             ),
             onPressed: () async {
@@ -85,11 +93,12 @@ AppBar myAppBar(BuildContext context) {
   );
 }
 
-Padding myEmailInput(){
+/// this is for an email input
+Padding myEmailInput(GlobalVars globalVars) {
   return Padding(
     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
     child: SizedBox(
-      width: screenDia * 0.82,
+      width: globalVars.deviceInfo.screenDimension * 0.82,
       child: TextFormField(
         autofocus: true,
         autofillHints: const [AutofillHints.email],
@@ -97,68 +106,77 @@ Padding myEmailInput(){
         decoration: InputDecoration(
           labelText: 'Email',
           labelStyle: TextStyle(
-            fontFamily: font,
-            fontSize: fontSize,
-            letterSpacing: lineSpace,
+            fontFamily: globalVars.fontInfo.font,
+            fontSize: globalVars.fontInfo.fontSizeMedium,
+            letterSpacing: globalVars.fontInfo.lineSpace,
             fontWeight: FontWeight.w500,
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: colours['sec']!,
+              color: globalVars.colours.secondary,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: colours['pri']!,
+              color: globalVars.colours.primary,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: colours['err']!,
+              color: globalVars.colours.error,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: colours['ter']!,
+              color: globalVars.colours.tertiary,
               width: 2.0,
             ),
             borderRadius: BorderRadius.circular(12.0),
           ),
           filled: true,
-          fillColor: colours['pri-bg'],
+          fillColor: globalVars.colours.secondaryBackground,
         ),
         style: TextStyle(
-          fontFamily: font,
-          fontSize: fontSize,
-          letterSpacing: lineSpace,
+          fontFamily: globalVars.fontInfo.font,
+          fontSize: globalVars.fontInfo.fontSizeMedium,
+          letterSpacing: globalVars.fontInfo.lineSpace,
           fontWeight: FontWeight.w500,
-          color: colours['pri-txt']!,
+          color: globalVars.colours.primaryText,
         ),
       ),
     ),
   );
 }
 
-Container myMachineVeiwer(BuildContext context,Map machine) {
+/// this is an automatic machine viewer for a machine passed in
+Container myMachineViewer(BuildContext context, GlobalVars globalVars, Map machine) {
+  Container cont = Container();
   if (machine['online']) {
-    return onlineMachine(context, machine);
+    cont = onlineMachine(context, globalVars, machine);
   }
   else {
-    return offlineMachine(machine);
+    cont = offlineMachine(machine, globalVars);
   }
+  return Container(
+    padding: EdgeInsetsDirectional.fromSTEB(0.0, globalVars.deviceInfo.screenHeight*0.05, 0.0, 16.0),
+    color: globalVars.colours.primaryBackground,
+    height: globalVars.deviceInfo.screenHeight*0.25,
+    child: cont,
+  );
 }
 
-Container onlineMachine(BuildContext context, Map machine) {
+/// this will return a a container if the machine is turned on
+Container onlineMachine(BuildContext context, GlobalVars globalVars, Map machine) {
   return Container(
-    color: colours['acc'],
-    width: screenH*0.8,
-    height: screenH*0.2,
+    color: globalVars.colours.accent,
+    width: globalVars.deviceInfo.screenWidth*0.8,
+    height: globalVars.deviceInfo.screenHeight*0.2,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -167,8 +185,8 @@ Container onlineMachine(BuildContext context, Map machine) {
           children: [
             Icon(
               Icons.factory_outlined,
-              color: colours['pri-txt'],
-              size: screenH*0.07
+              color: globalVars.colours.primaryText,
+              size: globalVars.deviceInfo.screenHeight*0.07
             ),
             RichText(
               text: TextSpan(
@@ -176,34 +194,35 @@ Container onlineMachine(BuildContext context, Map machine) {
                   TextSpan( 
                     text: machine['name'],
                     style: TextStyle(
-                      fontFamily: font,
-                      fontSize: fontSize+14,
-                      letterSpacing: lineSpace,
+                      fontFamily: globalVars.fontInfo.font,
+                      fontSize: globalVars.fontInfo.fontSizeExtraLarge,
+                      letterSpacing: globalVars.fontInfo.lineSpace,
                       fontWeight: FontWeight.w500,
-                      color: colours['pri'],
+                      color: globalVars.colours.primary,
                     ),
                   ),
                 ]
               )
             ),
-            tempritureText(machine['temp']),
+            temperatureText(machine['temp'], globalVars),
             Icon(
               Icons.wifi_outlined,
-              color: colours['pri-txt'],
+              color: globalVars.colours.primaryText,
             ),
           ],
         ),
-        progressBar(context, machine['percentDone'])
+        progressBar(context, globalVars, machine['percentDone'])
       ]
     ),
   );
 }
 
-Container offlineMachine(Map machine) {
+/// this will return a container for a machine that is offline
+Container offlineMachine(Map machine, GlobalVars globalVars) {
   return Container(
-    color: colours['acc'],
-    width: screenH*0.8,
-    height: screenH*0.2,
+    color: globalVars.colours.accent,
+    width: globalVars.deviceInfo.screenHeight*0.8,
+    height: globalVars.deviceInfo.screenHeight*0.2,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -212,8 +231,8 @@ Container offlineMachine(Map machine) {
           children: [
             Icon(
               Icons.factory_outlined,
-              color: colours['pri-txt'],
-              size: screenH*0.07
+              color: globalVars.colours.primaryText,
+              size: globalVars.deviceInfo.screenHeight*0.07
             ),
             RichText(
               text: TextSpan(
@@ -221,11 +240,11 @@ Container offlineMachine(Map machine) {
                   TextSpan( 
                     text: machine['name'],
                     style: TextStyle(
-                      fontFamily: font,
-                      fontSize: fontSize+14,
-                      letterSpacing: lineSpace,
+                      fontFamily: globalVars.fontInfo.font,
+                      fontSize: globalVars.fontInfo.fontSizeExtraLarge,
+                      letterSpacing: globalVars.fontInfo.lineSpace,
                       fontWeight: FontWeight.w500,
-                      color: colours['pri'],
+                      color: globalVars.colours.primary,
                     ),
                   ),
                 ]
@@ -233,7 +252,7 @@ Container offlineMachine(Map machine) {
             ),
             Icon(
               Icons.wifi_off,
-              color: colours['err']
+              color: globalVars.colours.error
             ),
           ],
         ),
@@ -242,16 +261,17 @@ Container offlineMachine(Map machine) {
   );
 }
 
-Container progressBar(BuildContext context, double progress) {
+/// this is a progress bar indicator
+Container progressBar(BuildContext context, GlobalVars globalVars, double progress) {
   double borderRadius = 10.0;
-  Color col = colours['pri']!;
+  Color col = globalVars.colours.primary;
   if (progress == 1) {
-    col = colours['suc']!;
+    col = globalVars.colours.success;
   }
   return Container(
-    width: screenW*0.8,
+    width: globalVars.deviceInfo.screenWidth*0.8,
     decoration: BoxDecoration(
-      color: colours['sec-bg']!,
+      color: globalVars.colours.secondaryBackground,
       borderRadius: BorderRadius.circular(borderRadius),
     ),
     child: Stack(
@@ -268,19 +288,20 @@ Container progressBar(BuildContext context, double progress) {
   );
 }
 
-RichText tempritureText(double temp) {
-  double trueTemp = tempritureCalculator(temp);
+/// this will return formatted text for the temperature
+RichText temperatureText(double temp, GlobalVars globalVars) {
+  double trueTemp = temperatureCalculator(temp, globalVars);
   return RichText(
     text: TextSpan(
       children: [
         TextSpan(
           text: '$trueTemp°',
           style: TextStyle(
-            fontFamily: font,
-            fontSize: fontSize+15.0,
-            letterSpacing: lineSpace,
+            fontFamily: globalVars.fontInfo.font,
+            fontSize: globalVars.fontInfo.fontSizeExtraLarge,
+            letterSpacing: globalVars.fontInfo.lineSpace,
             fontWeight: FontWeight.w500,
-            color: getTempColour(temp),
+            color: getTempColour(temp, globalVars),
           ),
         ),
       ]
@@ -288,12 +309,13 @@ RichText tempritureText(double temp) {
   );
 }
 
-Color getTempColour(double temp) {
+/// this gets the colour for the text in temp text.
+Color getTempColour(double temp, GlobalVars globalVars) {
   if (temp > 100) {
-    return colours['err']!;
+    return globalVars.colours.error;
   }
   if (temp > 65) {
-    return colours['wrn']!;
+    return globalVars.colours.warning;
   }
-  return colours['suc']!;
+  return globalVars.colours.success;
 }
